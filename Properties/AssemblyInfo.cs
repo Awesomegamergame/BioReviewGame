@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("BioReviewGame")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("PCSB")]
+[assembly: AssemblyCompany("AGG Productions")]
 [assembly: AssemblyProduct("BioReviewGame")]
-[assembly: AssemblyCopyright("Copyright © PCSB 2022")]
+[assembly: AssemblyCopyright("Copyright © AGG Productions 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

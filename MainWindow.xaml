@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BioReviewGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="CanResize"
+        Title="AP Bio Review Game" Height="510" Width="874"
+        MinHeight="510" MinWidth="874">
+    <Grid Background="#FF7F7F7F">
+        <Label Content="Question Number #1" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="30" VerticalAlignment="Top"/>
+        <TextBlock Text="Example Question?" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="17" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Height="279" Width="672"/>
+        <Button x:Name="Button1" Content="Wrong" HorizontalAlignment="Left" Margin="101,400,0,0" Click="Button1_Click" VerticalAlignment="Top" Height="62" Width="127"/>
+        <Button x:Name="Button2" Content="Wrong" HorizontalAlignment="Left" Margin="284,400,0,0" Click="Button2_Click" VerticalAlignment="Top" Height="62" Width="127"/>
+        <Button x:Name="Button3" Content="Correct" HorizontalAlignment="Left" Margin="461,400,0,0" Click="Button3_Click" VerticalAlignment="Top" Height="62" Width="127"/>
+        <Button x:Name="Button4" Content="Wrong" HorizontalAlignment="Left" Margin="646,400,0,0" Click="Button4_Click" VerticalAlignment="Top" Height="62" Width="127"/>
+
     </Grid>
 </Window>

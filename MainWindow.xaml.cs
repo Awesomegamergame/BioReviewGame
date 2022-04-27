@@ -11,7 +11,15 @@ namespace BioReviewGame
         {
             InitializeComponent();
             GameWindow = this;
-            size = Json.JsonReader();
+            try
+            {
+                size = Json.JsonReader();
+            }
+            catch (System.IO.FileNotFoundException ex)
+            {
+                MessageBox.Show($"A Dll File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
+                Application.Current.Shutdown();
+            }
             QuestionNumber = Game.Start(0);
         }
 

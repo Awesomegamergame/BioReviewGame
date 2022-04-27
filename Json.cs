@@ -43,6 +43,11 @@ namespace BioReviewGame
                     cList.Add(ReadJson(data.Name, "c", jsonFile));
                     size++;
                 }
+                dynamic timer = obj.Timer;
+                foreach (JProperty data in timer)
+                {
+                    MessageBox.Show(ReadTimer(data.Name, "minutes", jsonFile).ToString());
+                }
             }
             catch (JsonSerializationException ex)
             {
@@ -81,6 +86,11 @@ namespace BioReviewGame
                     cList.Add(ReadJsonEmbed(data.Name, "c", jsonEmbed));
                     size++;
                 }
+                dynamic timer = obj.Timer;
+                foreach (JProperty data in timer)
+                {
+                    MessageBox.Show(ReadTimer(data.Name, "minutes", jsonEmbed).ToString());
+                }
             }
             catch (JsonSerializationException ex)
             {
@@ -102,6 +112,10 @@ namespace BioReviewGame
             JObject rss = JObject.Parse(Embed);
             return (string)rss["Questions"][GVersion][Property];
         }
-
+        public static int ReadTimer(string GVersion, string Property, string dir)
+        {
+            JObject rss = JObject.Parse(dir);
+            return (int)rss["Timer"][GVersion][Property];
+        }
     }
 }

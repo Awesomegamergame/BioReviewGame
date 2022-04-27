@@ -1,6 +1,9 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Timers;
 using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace BioReviewGame
 {
@@ -127,6 +130,7 @@ namespace BioReviewGame
             Embed.Visibility = Visibility.Collapsed;
             Start.Visibility = Visibility.Collapsed;
             Select.Visibility = Visibility.Collapsed;
+            GameTitle.Visibility = Visibility.Collapsed;
             QuestionNumber = Game.Start(0);
         }
     }

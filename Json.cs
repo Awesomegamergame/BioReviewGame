@@ -16,6 +16,7 @@ namespace BioReviewGame
         public static List<string> a3List = new List<string>();
         public static List<string> a4List = new List<string>();
         public static List<string> cList = new List<string>();
+        public static int time;
         public static int JsonReader(string directory)
         {
             int size = 0;
@@ -46,7 +47,8 @@ namespace BioReviewGame
                 dynamic timer = obj.Timer;
                 foreach (JProperty data in timer)
                 {
-                    MessageBox.Show(ReadTimer(data.Name, "minutes", jsonFile).ToString());
+                    int ctime = ReadTimer(data.Name, "minutes", jsonFile) * 60000;
+                    time = ctime;
                 }
             }
             catch (JsonSerializationException ex)
@@ -89,7 +91,8 @@ namespace BioReviewGame
                 dynamic timer = obj.Timer;
                 foreach (JProperty data in timer)
                 {
-                    MessageBox.Show(ReadTimer(data.Name, "minutes", jsonEmbed).ToString());
+                    int ctime = ReadTimer(data.Name, "minutes", jsonEmbed) * 60000;
+                    time = ctime;
                 }
             }
             catch (JsonSerializationException ex)

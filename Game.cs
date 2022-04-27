@@ -1,4 +1,5 @@
-﻿using static BioReviewGame.MainWindow;
+﻿using System.Windows;
+using static BioReviewGame.MainWindow;
 
 namespace BioReviewGame
 {
@@ -48,6 +49,14 @@ namespace BioReviewGame
                     GameWindow.Button4.Tag = "correct";
                     break;
             }
+        }
+        public static void EndGame()
+        {
+            MessageBox.Show("You have finished the game!");
+            GameWindow.BackgroundP.Visibility = Visibility.Visible;
+            timer.Enabled = false;
+            timer.Dispose();
+            thread.Abort();
         }
     }
 }

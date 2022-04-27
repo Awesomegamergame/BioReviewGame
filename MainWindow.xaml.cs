@@ -1,9 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 using System.Timers;
 using Microsoft.Win32;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
 namespace BioReviewGame
 {
@@ -12,6 +11,8 @@ namespace BioReviewGame
         public static MainWindow GameWindow;
         public static int QuestionNumber;
         public int size;
+        public static Timer timer = new Timer();
+        public static System.Threading.Thread thread = new System.Threading.Thread(GameTimer.StartTimer);
         public MainWindow()
         {
             InitializeComponent();
@@ -28,10 +29,7 @@ namespace BioReviewGame
                     MessageBox.Show("Correct!");
                 }
                 else
-                {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
-                }
+                    Game.EndGame();
             }
             else
                 MessageBox.Show("Wrong answer!");
@@ -46,10 +44,7 @@ namespace BioReviewGame
                     MessageBox.Show("Correct!");
                 }
                 else
-                {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
-                }
+                    Game.EndGame();
             }
             else
                 MessageBox.Show("Wrong answer!");
@@ -64,10 +59,7 @@ namespace BioReviewGame
                     MessageBox.Show("Correct!");
                 }
                 else
-                {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
-                }
+                    Game.EndGame();
             }
             else
                 MessageBox.Show("Wrong answer!");
@@ -82,10 +74,7 @@ namespace BioReviewGame
                     MessageBox.Show("Correct!");
                 }
                 else
-                {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
-                }
+                    Game.EndGame();
             }
             else
                 MessageBox.Show("Wrong answer!");
@@ -126,12 +115,21 @@ namespace BioReviewGame
         }
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            try { timer.Interval = Json.time; }
+            catch (ArgumentException) { MessageBox.Show("Time can't be zero"); return; }
+            timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            timer.Enabled = true;
+            thread.Start();
             BackgroundP.Visibility = Visibility.Collapsed;
             Embed.Visibility = Visibility.Collapsed;
             Start.Visibility = Visibility.Collapsed;
             Select.Visibility = Visibility.Collapsed;
             GameTitle.Visibility = Visibility.Collapsed;
             QuestionNumber = Game.Start(0);
+        }
+        public void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Game.EndGame();
         }
     }
 }

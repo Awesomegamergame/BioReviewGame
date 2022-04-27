@@ -26,12 +26,12 @@ namespace BioReviewGame
                 dynamic json = obj.Questions;
                 foreach (JProperty data in json)
                 {
-                    questionlist.Add(ReadJson(data.Name, "question", jsonFile, "Questions"));
-                    a1List.Add(ReadJson(data.Name, "a1", jsonFile, "Questions"));
-                    a2List.Add(ReadJson(data.Name, "a2", jsonFile, "Questions"));
-                    a3List.Add(ReadJson(data.Name, "a3", jsonFile, "Questions"));
-                    a4List.Add(ReadJson(data.Name, "a4", jsonFile, "Questions"));
-                    cList.Add(ReadJson(data.Name, "c", jsonFile, "Questions"));
+                    questionlist.Add(ReadJson(data.Name, "question", jsonFile));
+                    a1List.Add(ReadJson(data.Name, "a1", jsonFile));
+                    a2List.Add(ReadJson(data.Name, "a2", jsonFile));
+                    a3List.Add(ReadJson(data.Name, "a3", jsonFile));
+                    a4List.Add(ReadJson(data.Name, "a4", jsonFile));
+                    cList.Add(ReadJson(data.Name, "c", jsonFile));
                     size++;
                 }
             }
@@ -53,12 +53,12 @@ namespace BioReviewGame
                 dynamic json = obj.Questions;
                 foreach (JProperty data in json)
                 {
-                    questionlist.Add(ReadJsonEmbed(data.Name, "question", jsonEmbed, "Questions"));
-                    a1List.Add(ReadJsonEmbed(data.Name, "a1", jsonEmbed, "Questions"));
-                    a2List.Add(ReadJsonEmbed(data.Name, "a2", jsonEmbed, "Questions"));
-                    a3List.Add(ReadJsonEmbed(data.Name, "a3", jsonEmbed, "Questions"));
-                    a4List.Add(ReadJsonEmbed(data.Name, "a4", jsonEmbed, "Questions"));
-                    cList.Add(ReadJsonEmbed(data.Name, "c", jsonEmbed, "Questions"));
+                    questionlist.Add(ReadJsonEmbed(data.Name, "question", jsonEmbed));
+                    a1List.Add(ReadJsonEmbed(data.Name, "a1", jsonEmbed));
+                    a2List.Add(ReadJsonEmbed(data.Name, "a2", jsonEmbed));
+                    a3List.Add(ReadJsonEmbed(data.Name, "a3", jsonEmbed));
+                    a4List.Add(ReadJsonEmbed(data.Name, "a4", jsonEmbed));
+                    cList.Add(ReadJsonEmbed(data.Name, "c", jsonEmbed));
                     size++;
                 }
             }
@@ -69,15 +69,15 @@ namespace BioReviewGame
             }
             return size;
         }
-        public static string ReadJson(string GVersion, string Property, string json, string TopLevel)
+        public static string ReadJson(string GVersion, string Property, string json)
         {
             JObject rss = JObject.Parse(json);
-            return (string)rss[TopLevel][GVersion][Property];
+            return (string)rss["Questions"][GVersion][Property];
         }
-        public static string ReadJsonEmbed(string GVersion, string Property, string Embed, string TopLevel)
+        public static string ReadJsonEmbed(string GVersion, string Property, string Embed)
         {
             JObject rss = JObject.Parse(Embed);
-            return (string)rss[TopLevel][GVersion][Property];
+            return (string)rss["Questions"][GVersion][Property];
         }
 
     }

@@ -96,14 +96,9 @@ namespace BioReviewGame
             }
             catch (FileNotFoundException ex)
             {
-                MessageBox.Show($"A Dll Or Data File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
+                MessageBox.Show($"A Dll is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
                 Application.Current.Shutdown();
             }
-            Embed.Visibility = Visibility.Collapsed;
-            BackgroundP.Visibility = Visibility.Collapsed;
-            Start.Visibility = Visibility.Collapsed;
-            Select.Visibility = Visibility.Collapsed;
-            QuestionNumber = Game.Start(0);
         }
         private void Select_Click(object sender, RoutedEventArgs e)
         {
@@ -121,15 +116,18 @@ namespace BioReviewGame
                 }
                 catch (FileNotFoundException ex)
                 {
-                    MessageBox.Show($"A Dll Or Data File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
+                    MessageBox.Show($"A Dll File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
                     Application.Current.Shutdown();
                 }
-                Embed.Visibility = Visibility.Collapsed;
-                BackgroundP.Visibility = Visibility.Collapsed;
-                Start.Visibility = Visibility.Collapsed;
-                Select.Visibility = Visibility.Collapsed;
-                QuestionNumber = Game.Start(0);
             }
+        }
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundP.Visibility = Visibility.Collapsed;
+            Embed.Visibility = Visibility.Collapsed;
+            Start.Visibility = Visibility.Collapsed;
+            Select.Visibility = Visibility.Collapsed;
+            QuestionNumber = Game.Start(0);
         }
     }
 }

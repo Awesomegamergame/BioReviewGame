@@ -2,7 +2,7 @@
 using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Environment;
+using static BioReviewGame.MainWindow;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -21,6 +21,15 @@ namespace BioReviewGame
             int size = 0;
             try
             {
+                GameWindow.Embed.IsEnabled = true;
+                GameWindow.Select.IsEnabled = true;
+                GameWindow.Start.IsEnabled = true;
+                questionlist.Clear();
+                a1List.Clear();
+                a2List.Clear();
+                a3List.Clear();
+                a4List.Clear();
+                cList.Clear();
                 string jsonFile = new StreamReader(directory).ReadToEnd();
                 dynamic obj = JsonConvert.DeserializeObject<dynamic>(jsonFile);
                 dynamic json = obj.Questions;
@@ -37,8 +46,13 @@ namespace BioReviewGame
             }
             catch (JsonSerializationException ex)
             {
+                GameWindow.Start.IsEnabled = false;
                 MessageBox.Show($"Something is wrong with the json file.\n\nError Code: {ex}");
-                Application.Current.Shutdown();
+            }
+            catch (System.NullReferenceException ex)
+            {
+                GameWindow.Start.IsEnabled = false;
+                MessageBox.Show($"Something is wrong with the json file.\n\nError Code: {ex}");
             }
             return size;
         }
@@ -47,6 +61,12 @@ namespace BioReviewGame
             int size = 0;
             try
             {
+                questionlist.Clear();
+                a1List.Clear();
+                a2List.Clear();
+                a3List.Clear();
+                a4List.Clear();
+                cList.Clear();
                 var DataStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("BioReviewGame.Data.json");
                 string jsonEmbed = new StreamReader(DataStream).ReadToEnd();
                 dynamic obj = JsonConvert.DeserializeObject<dynamic>(jsonEmbed);
@@ -67,6 +87,9 @@ namespace BioReviewGame
                 MessageBox.Show($"Something is wrong with the json file.\n\nError Code: {ex}");
                 Application.Current.Shutdown();
             }
+            GameWindow.Embed.IsEnabled = false;
+            GameWindow.Select.IsEnabled = true;
+            GameWindow.Start.IsEnabled = true;
             return size;
         }
         public static string ReadJson(string GVersion, string Property, string json)

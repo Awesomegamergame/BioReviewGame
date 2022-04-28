@@ -2,128 +2,88 @@
   "Questions": {
     "1": {
       "question": "Endothermic Definition",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "1"
+      "a1": "takes heat from the outside of the body",
+      "a2": "takes heat from surroundings",
+      "a3": "takes heat from the inside of the body",
+      "a4": "takes heat from the water",
+      "c": "2"
     },
     "2": {
       "question": "Ectothermic Definition",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "gives heat to the outside of the body",
+      "a2": "gives heat to the inside of the body",
+      "a3": "gives heat to other people",
+      "a4": "gives heat to the surroundings",
+      "c": "4"
     },
     "3": {
       "question": "what is the % of energy transfered to each trophic level",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "5 percent",
+      "a2": "100 percent",
+      "a3": "Over 9000 percent",
+      "a4": "10 percent",
+      "c": "4"
     },
     "4": {
       "question": "how does evolution come about",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "non genetic",
+      "a2": "not random",
+      "a3": "random",
+      "a4": "ask your parents",
+      "c": "3"
     },
     "5": {
       "question": "which is a density independent factor",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
+      "a1": "home",
+      "a2": "wildfire",
+      "a3": "disease",
+      "a4": "predation",
       "c": "2"
     },
     "6": {
       "question": "which is density dependent",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "death rates",
+      "a2": "people",
+      "a3": "disease",
+      "a4": "answer",
+      "c": "3"
     },
     "7": {
       "question": "what is carrying capacity",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "the number of organisms an ecosystem can support",
+      "a2": "the number of organisms an ecosystem cant support",
+      "a3": "the percent of the population that can support an ecosystem",
+      "a4": "the death rate of an ecosystem",
+      "c": "1"
     },
     "8": {
-      "question": "(competition example)",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "question": "competition example",
+      "a1": "wolves hunting moose",
+      "a2": "shrews and worms",
+      "a3": "lions and cheetahs have the same prey",
+      "a4": "owls hunting mice",
+      "c": "3"
     },
     "9": {
       "question": "which is the correct formula for the simpsons diversity index",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "D=1-?(n/N)^2",
+      "a2": "D=2-?n*5^2",
+      "a3": "D=1-?(N/n)^3",
+      "a4": "D=2-?(n/N)^2",
+      "c": "1"
     },
     "10": {
       "question": "what is a keystone species",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
-    },
-    "11": {
-      "question": "(mutualism example)",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
-    },
-    "12": {
-      "question": "(parasitism example)",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
-    },
-    "13": {
-      "question": "how do mutations come about",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
-    },
-    "14": {
-      "question": "which is not a requirement for natural selection",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
-    },
-    "15": {
-      "question": "which is not a requirement of artificial selection",
-      "a1": "1",
-      "a2": "2",
-      "a3": "3",
-      "a4": "4",
-      "c": "2"
+      "a1": "A species on which other species in an ecosystem largely depend",
+      "a2": "A species that is the most abundant in an ecosystem",
+      "a3": "A species that dies the most",
+      "a4": "A species that doesnt need other species to survive",
+      "c": "1"
     }
   },
   "Timer": {
     "time": {
-      "minutes": "1"
+      "minutes": "2"
     }
   }
 }

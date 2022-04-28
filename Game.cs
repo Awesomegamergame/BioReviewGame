@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using static BioReviewGame.MainWindow;
 
 namespace BioReviewGame
@@ -11,10 +12,18 @@ namespace BioReviewGame
             num++;
             GameWindow.QTitle.Content = $"Question Number #{num} of {size}";
             GameWindow.Question.Text = Json.questionlist[questionNumber];
-            GameWindow.Button1.Content = Json.a1List[questionNumber];
-            GameWindow.Button2.Content = Json.a2List[questionNumber];
-            GameWindow.Button3.Content = Json.a3List[questionNumber];
-            GameWindow.Button4.Content = Json.a4List[questionNumber];
+            var tb = GameWindow.Button1.Content as TextBlock;
+            tb.Text = Json.a1List[questionNumber];
+            tb = GameWindow.Button2.Content as TextBlock;
+            tb.Text = Json.a2List[questionNumber];
+            tb = GameWindow.Button3.Content as TextBlock;
+            tb.Text = Json.a3List[questionNumber];
+            tb = GameWindow.Button4.Content as TextBlock;
+            tb.Text = Json.a4List[questionNumber];
+            //GameWindow.Button1.Content = Json.a1List[questionNumber];
+            //GameWindow.Button2.Content = Json.a2List[questionNumber];
+            //GameWindow.Button3.Content = Json.a3List[questionNumber];
+            //GameWindow.Button4.Content = Json.a4List[questionNumber];
             Tag(questionNumber);
             questionNumber++;
             return questionNumber;

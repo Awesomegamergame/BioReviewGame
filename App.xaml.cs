@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace BioReviewGame
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        public static MainWindow window = new MainWindow();
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            window.Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Game.StopThread();
+        }
     }
 }

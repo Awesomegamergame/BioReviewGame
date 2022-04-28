@@ -9,7 +9,7 @@ namespace BioReviewGame
         {
             int num = questionNumber;
             num++;
-            GameWindow.QTitle.Content = $"Question Number #{num}";
+            GameWindow.QTitle.Content = $"Question Number #{num} of {size}";
             GameWindow.Question.Text = Json.questionlist[questionNumber];
             GameWindow.Button1.Content = Json.a1List[questionNumber];
             GameWindow.Button2.Content = Json.a2List[questionNumber];
@@ -57,7 +57,6 @@ namespace BioReviewGame
             thread.Abort();
             if (timeover)
             {
-
                 GameWindow.Dispatcher.Invoke(() =>
                 {
                     GameWindow.BackgroundP.Visibility = Visibility.Visible;
@@ -65,7 +64,7 @@ namespace BioReviewGame
                     GameWindow.EndBody.Visibility = Visibility.Visible;
                     GameWindow.Score.Content = $"{score}/{size} Correct";
                     GameWindow.Score.Visibility = Visibility.Visible;
-                    GameWindow.TimeLeft.Content = GameTimer.ScoreTimer;
+                    GameWindow.TimeLeft.Content = "Times Up";
                     GameWindow.TimeLeft.Visibility = Visibility.Visible;
                 });
             }
@@ -82,6 +81,10 @@ namespace BioReviewGame
                     GameWindow.TimeLeft.Visibility = Visibility.Visible;
                 });
             }
+        }
+        public static void StopThread()
+        {
+            thread.Abort();
         }
     }
 }

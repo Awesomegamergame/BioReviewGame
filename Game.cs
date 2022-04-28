@@ -50,13 +50,38 @@ namespace BioReviewGame
                     break;
             }
         }
-        public static void EndGame()
+        public static void EndGame(bool timeover)
         {
-            MessageBox.Show("You have finished the game!");
-            GameWindow.BackgroundP.Visibility = Visibility.Visible;
             timer.Enabled = false;
             timer.Dispose();
             thread.Abort();
+            if (timeover)
+            {
+
+                GameWindow.Dispatcher.Invoke(() =>
+                {
+                    GameWindow.BackgroundP.Visibility = Visibility.Visible;
+                    GameWindow.EndTitle.Visibility = Visibility.Visible;
+                    GameWindow.EndBody.Visibility = Visibility.Visible;
+                    GameWindow.Score.Content = $"{score}/{size} Correct";
+                    GameWindow.Score.Visibility = Visibility.Visible;
+                    GameWindow.TimeLeft.Content = GameTimer.ScoreTimer;
+                    GameWindow.TimeLeft.Visibility = Visibility.Visible;
+                });
+            }
+            else
+            {
+                GameWindow.Dispatcher.Invoke(() =>
+                {
+                    GameWindow.BackgroundP.Visibility = Visibility.Visible;
+                    GameWindow.EndTitle.Visibility = Visibility.Visible;
+                    GameWindow.EndBody.Visibility = Visibility.Visible;
+                    GameWindow.Score.Content = $"{score}/{size} Correct";
+                    GameWindow.Score.Visibility = Visibility.Visible;
+                    GameWindow.TimeLeft.Content = GameTimer.ScoreTimer;
+                    GameWindow.TimeLeft.Visibility = Visibility.Visible;
+                });
+            }
         }
     }
 }

@@ -23,5 +23,10 @@
         <Button x:Name="Start" Content="Start" IsEnabled="False" HorizontalAlignment="Right" Click="Start_Click" Margin="0,390,101,0" VerticalAlignment="Top" Height="62" Width="126"/>
         <Button x:Name="Embed" Content="Use Embeded File" HorizontalAlignment="Right" Click="Embed_Click" Margin="0,390,647,0" VerticalAlignment="Top" Height="62" Width="126"/>
         <Label x:Name="GameTitle" Content="AP Bio Review Game" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>
+
+        <Label x:Name="EndTitle" Content="Congrats You Finished" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>
+        <Label x:Name="EndBody" Content="Here is your results" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,0,0,200" FontSize="20" VerticalAlignment="Center"/>
+        <Label x:Name="Score" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,0,0,50" FontSize="20" VerticalAlignment="Center"/>
+        <Label x:Name="TimeLeft" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20" VerticalAlignment="Center"/>
     </Grid>
 </Window>

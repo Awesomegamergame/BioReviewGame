@@ -10,7 +10,9 @@ namespace BioReviewGame
     {
         public static MainWindow GameWindow;
         public static int QuestionNumber;
-        public int size;
+        public static int size;
+        public static int score;
+        public bool tryagain = false;
         public static Timer timer = new Timer();
         public static System.Threading.Thread thread = new System.Threading.Thread(GameTimer.StartTimer);
         public MainWindow()
@@ -21,18 +23,31 @@ namespace BioReviewGame
         #region Quiz Buttons
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (Button1.Tag.Equals("correct")) 
+            if (Button1.Tag.Equals("correct"))
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
-                    Game.EndGame();
+                {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
+                }
             }
-            else
+            else 
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
@@ -40,14 +55,27 @@ namespace BioReviewGame
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
-                    Game.EndGame();
+                {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
+                }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
@@ -55,14 +83,27 @@ namespace BioReviewGame
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
-                    Game.EndGame();
+                {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
+                }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
@@ -70,14 +111,27 @@ namespace BioReviewGame
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
-                    Game.EndGame();
+                {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
+                }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
         #endregion
         private void Embed_Click(object sender, RoutedEventArgs e)
@@ -129,7 +183,7 @@ namespace BioReviewGame
         }
         public void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            Game.EndGame();
+            Game.EndGame(true);
         }
     }
 }

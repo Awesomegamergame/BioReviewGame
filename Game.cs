@@ -82,9 +82,5 @@ namespace BioReviewGame
                 });
             }
         }
-        public static void StopThread()
-        {
-            thread.Abort();
-        }
     }
 }

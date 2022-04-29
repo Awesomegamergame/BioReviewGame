@@ -123,7 +123,9 @@
     <None Include="Questions\Kyle.q&amp;a">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Questions\Nikoli.q&amp;a" />
+    <None Include="Questions\Nikoli.q&amp;a">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

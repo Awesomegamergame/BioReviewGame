@@ -1,12 +1,4 @@
-﻿Teachers Instructions
-1. Dont give this part of the instructions to any not in my group very secret stuff here.
-2. if you create a text file called "DevMode" in the same folder as the program it will allow you to see the
-   questions and answers in a text file instead of the special file i made to hide the answers.
-3. you can also make a questions file in this mode as well it just needs to be in a specific format as shown
-   here on my website https://raw.githubusercontent.com/awesomegamergame/BioReviewGame/master/Data.json
-
-
-Student Instructions
+﻿Student Instructions
 1. unzip the folder if not already done
 2. run the program
 3. select the button to select a question file.

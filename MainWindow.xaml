@@ -12,27 +12,29 @@
         <Label x:Name="QTitle" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="30" VerticalAlignment="Top"/>
         <TextBlock x:Name="Question" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="17" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Height="279" Width="672"/>
         <Button x:Name="Button1" HorizontalAlignment="Left" Margin="101,390,0,0" Click="Button1_Click" VerticalAlignment="Top" Height="70" Width="130">
-            <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" FontSize="11" TextAlignment="Center"/>
         </Button>
         <Button x:Name="Button2" HorizontalAlignment="Left" Margin="284,390,0,0" Click="Button2_Click" VerticalAlignment="Top" Height="70" Width="130">
-            <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" FontSize="11" TextAlignment="Center"/>
         </Button>
         <Button x:Name="Button3" HorizontalAlignment="Left" Margin="461,390,0,0" Click="Button3_Click" VerticalAlignment="Top" Height="70" Width="130">
-            <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" FontSize="11" TextAlignment="Center"/>
         </Button>
         <Button x:Name="Button4" HorizontalAlignment="Left" Margin="646,390,0,0" Click="Button4_Click" VerticalAlignment="Top" Height="70" Width="130">
-            <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" FontSize="11" TextAlignment="Center"/>
         </Button>
         <Label x:Name="Timer" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top"/>
 
         <Image x:Name="BackgroundP" Source="Images/Background.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="510" Margin="0,0,0,0" VerticalAlignment="Top" Width="874"/>
         <Button x:Name="Select" Content="Select Question File" HorizontalAlignment="Left" Click="Select_Click" Margin="101,390,0,0" VerticalAlignment="Top" Height="62" Width="126"/>
-        <Button x:Name="Start" Content="Start" IsEnabled="False" HorizontalAlignment="Right" Click="Start_Click" Margin="0,390,101,0" VerticalAlignment="Top" Height="62" Width="126"/>
+        <Button x:Name="Start" Content="Start" IsEnabled="False" HorizontalAlignment="Right" Foreground="Red" Click="Start_Click" Margin="0,390,101,0" VerticalAlignment="Top" Height="62" Width="126"/>
         <Label x:Name="GameTitle" Content="AP Bio Review Game" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>
 
         <Label x:Name="EndTitle" Content="Congrats You Finished" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>
         <Label x:Name="EndBody" Content="Here is your results" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,0,0,200" FontSize="20" VerticalAlignment="Center"/>
         <Label x:Name="Score" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,0,0,50" FontSize="20" VerticalAlignment="Center"/>
         <Label x:Name="TimeLeft" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20" VerticalAlignment="Center"/>
+        <Label x:Name="Credit" Content="Credit to: Nikoli, Kyle, Elias" FontSize="16" HorizontalAlignment="Center" Margin="0,407,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="BodyS" Content="Choose a questions file to start" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,200" VerticalAlignment="Center"/>
     </Grid>
 </Window>

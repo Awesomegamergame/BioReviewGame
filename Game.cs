@@ -20,10 +20,6 @@ namespace BioReviewGame
             tb.Text = Json.a3List[questionNumber];
             tb = GameWindow.Button4.Content as TextBlock;
             tb.Text = Json.a4List[questionNumber];
-            //GameWindow.Button1.Content = Json.a1List[questionNumber];
-            //GameWindow.Button2.Content = Json.a2List[questionNumber];
-            //GameWindow.Button3.Content = Json.a3List[questionNumber];
-            //GameWindow.Button4.Content = Json.a4List[questionNumber];
             Tag(questionNumber);
             questionNumber++;
             return questionNumber;

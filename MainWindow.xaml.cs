@@ -164,6 +164,8 @@ namespace BioReviewGame
             timer.Enabled = true;
             thread.Start();
             BackgroundP.Visibility = Visibility.Collapsed;
+            BodyS.Visibility = Visibility.Collapsed;
+            Credit.Visibility = Visibility.Collapsed;
             Start.Visibility = Visibility.Collapsed;
             Select.Visibility = Visibility.Collapsed;
             GameTitle.Visibility = Visibility.Collapsed;

@@ -134,31 +134,20 @@ namespace BioReviewGame
             }
         }
         #endregion
-        private void Embed_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                size = Json.JsonReaderEmbed();
-            }
-            catch (FileNotFoundException ex)
-            {
-                MessageBox.Show($"A Dll is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
-                Application.Current.Shutdown();
-            }
-        }
         private void Select_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Title = "Choose Questions .json File",
-                Filter = "Json Files|*.json;*.JSON;"
+                Title = "Choose a Questions File",
+                Filter = "Q&A Files|*.q&a;*.Q&A;"
             };
             bool? result = openFileDialog.ShowDialog();
             if(result == true)
             {
                 try
                 {
-                    size = Json.JsonReader(openFileDialog.FileName);
+                    string json = Security.Decrypt(openFileDialog.FileName, openFileDialog.SafeFileName, false);
+                    size = Json.JsonReader(json);
                 }
                 catch (FileNotFoundException ex)
                 {
@@ -175,7 +164,6 @@ namespace BioReviewGame
             timer.Enabled = true;
             thread.Start();
             BackgroundP.Visibility = Visibility.Collapsed;
-            Embed.Visibility = Visibility.Collapsed;
             Start.Visibility = Visibility.Collapsed;
             Select.Visibility = Visibility.Collapsed;
             GameTitle.Visibility = Visibility.Collapsed;

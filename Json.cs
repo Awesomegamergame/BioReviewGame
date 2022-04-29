@@ -1,10 +1,8 @@
-﻿using System.IO;
-using System.Windows;
+﻿using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using static BioReviewGame.MainWindow;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace BioReviewGame
 {
@@ -17,12 +15,11 @@ namespace BioReviewGame
         public static List<string> a4List = new List<string>();
         public static List<string> cList = new List<string>();
         public static int time;
-        public static int JsonReader(string directory)
+        public static int JsonReader(string jsonFile)
         {
             int size = 0;
             try
             {
-                GameWindow.Embed.IsEnabled = true;
                 GameWindow.Select.IsEnabled = true;
                 GameWindow.Start.IsEnabled = true;
                 questionlist.Clear();
@@ -31,7 +28,6 @@ namespace BioReviewGame
                 a3List.Clear();
                 a4List.Clear();
                 cList.Clear();
-                string jsonFile = new StreamReader(directory).ReadToEnd();
                 dynamic obj = JsonConvert.DeserializeObject<dynamic>(jsonFile);
                 dynamic json = obj.Questions;
                 foreach (JProperty data in json)
@@ -63,56 +59,9 @@ namespace BioReviewGame
             }
             return size;
         }
-        public static int JsonReaderEmbed()
-        {
-            int size = 0;
-            try
-            {
-                questionlist.Clear();
-                a1List.Clear();
-                a2List.Clear();
-                a3List.Clear();
-                a4List.Clear();
-                cList.Clear();
-                var DataStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("BioReviewGame.Data.json");
-                string jsonEmbed = new StreamReader(DataStream).ReadToEnd();
-                dynamic obj = JsonConvert.DeserializeObject<dynamic>(jsonEmbed);
-                dynamic json = obj.Questions;
-                foreach (JProperty data in json)
-                {
-                    questionlist.Add(ReadJsonEmbed(data.Name, "question", jsonEmbed));
-                    a1List.Add(ReadJsonEmbed(data.Name, "a1", jsonEmbed));
-                    a2List.Add(ReadJsonEmbed(data.Name, "a2", jsonEmbed));
-                    a3List.Add(ReadJsonEmbed(data.Name, "a3", jsonEmbed));
-                    a4List.Add(ReadJsonEmbed(data.Name, "a4", jsonEmbed));
-                    cList.Add(ReadJsonEmbed(data.Name, "c", jsonEmbed));
-                    size++;
-                }
-                dynamic timer = obj.Timer;
-                foreach (JProperty data in timer)
-                {
-                    int ctime = ReadTimer(data.Name, "minutes", jsonEmbed) * 60000;
-                    time = ctime;
-                }
-            }
-            catch (JsonSerializationException ex)
-            {
-                MessageBox.Show($"Something is wrong with the json file.\n\nError Code: {ex}");
-                Application.Current.Shutdown();
-            }
-            GameWindow.Embed.IsEnabled = false;
-            GameWindow.Select.IsEnabled = true;
-            GameWindow.Start.IsEnabled = true;
-            return size;
-        }
         public static string ReadJson(string GVersion, string Property, string json)
         {
             JObject rss = JObject.Parse(json);
-            return (string)rss["Questions"][GVersion][Property];
-        }
-        public static string ReadJsonEmbed(string GVersion, string Property, string Embed)
-        {
-            JObject rss = JObject.Parse(Embed);
             return (string)rss["Questions"][GVersion][Property];
         }
         public static int ReadTimer(string GVersion, string Property, string dir)

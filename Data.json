@@ -66,10 +66,10 @@
     },
     "9": {
       "question": "which is the correct formula for the simpsons diversity index",
-      "a1": "D=1-?(n/N)^2",
-      "a2": "D=2-?n*5^2",
-      "a3": "D=1-?(N/n)^3",
-      "a4": "D=2-?(n/N)^2",
+      "a1": "D=1-sum(n/N)^2",
+      "a2": "D=2-sumn*5^2",
+      "a3": "D=1-sum(N/n)^3",
+      "a4": "D=2-sum(n/N)^2",
       "c": "1"
     },
     "10": {

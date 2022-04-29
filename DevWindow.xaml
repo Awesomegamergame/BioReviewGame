@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         Title="DevWindow" Height="200" Width="300">
     <Grid>
-        <Button x:Name="E" Content="Encrypt" HorizontalAlignment="Left" Click="E_Click" Margin="64,92,0,0" VerticalAlignment="Top" Height="34" Width="57"/>
-        <Button x:Name="D" Content="Decrypt" HorizontalAlignment="Left" Click="D_Click" Margin="198,92,0,0" VerticalAlignment="Top" Height="34" Width="57"/>
+        <Button x:Name="E" Content="Convert to qa File" HorizontalAlignment="Left" Click="E_Click" Margin="25,92,0,0" VerticalAlignment="Top" Height="34" Width="102"/>
+        <Button x:Name="D" Content="Convert to Text File" HorizontalAlignment="Left" Click="D_Click" Margin="164,92,0,0" VerticalAlignment="Top" Height="34" Width="105"/>
     </Grid>
 </Window>

@@ -1,0 +1,20 @@
+﻿Teachers Instructions
+1. Dont give this part of the instructions to any not in my group very secret stuff here.
+2. if you create a text file called "DevMode" in the same folder as the program it will allow you to see the
+   questions and answers in a text file instead of the special file i made to hide the answers.
+3. you can also make a questions file in this mode as well it just needs to be in a specific format as shown
+   here on my website https://raw.githubusercontent.com/awesomegamergame/BioReviewGame/master/Data.json
+
+
+Student Instructions
+1. unzip the folder if not already done
+2. run the program
+3. select the button to select a question file.
+4. find and select the question file in the popup
+5. hit start when the file is selected.
+6. answer the questions it will tell you if you are right or wrong.
+7. Note: you have to get the question right the first time to get a point for the question.
+8. your score will be shown after all of the questions.
+9. there is a time limit each questions file has a different time limit because kyle wanted it.
+   so dont run out of time or its game over.
+10. repeat step for the other question files to get all of the nice juicy questions review.

@@ -1,4 +1,6 @@
-﻿using static BioReviewGame.MainWindow;
+﻿using System.Windows;
+using System.Windows.Controls;
+using static BioReviewGame.MainWindow;
 
 namespace BioReviewGame
 {
@@ -8,12 +10,20 @@ namespace BioReviewGame
         {
             int num = questionNumber;
             num++;
-            GameWindow.QTitle.Content = $"Question Number #{num}";
+            GameWindow.QTitle.Content = $"Question Number #{num} of {size}";
             GameWindow.Question.Text = Json.questionlist[questionNumber];
-            GameWindow.Button1.Content = Json.a1List[questionNumber];
-            GameWindow.Button2.Content = Json.a2List[questionNumber];
-            GameWindow.Button3.Content = Json.a3List[questionNumber];
-            GameWindow.Button4.Content = Json.a4List[questionNumber];
+            var tb = GameWindow.Button1.Content as TextBlock;
+            tb.Text = Json.a1List[questionNumber];
+            tb = GameWindow.Button2.Content as TextBlock;
+            tb.Text = Json.a2List[questionNumber];
+            tb = GameWindow.Button3.Content as TextBlock;
+            tb.Text = Json.a3List[questionNumber];
+            tb = GameWindow.Button4.Content as TextBlock;
+            tb.Text = Json.a4List[questionNumber];
+            //GameWindow.Button1.Content = Json.a1List[questionNumber];
+            //GameWindow.Button2.Content = Json.a2List[questionNumber];
+            //GameWindow.Button3.Content = Json.a3List[questionNumber];
+            //GameWindow.Button4.Content = Json.a4List[questionNumber];
             Tag(questionNumber);
             questionNumber++;
             return questionNumber;
@@ -47,6 +57,38 @@ namespace BioReviewGame
                     GameWindow.Button3.Tag = "wrong";
                     GameWindow.Button4.Tag = "correct";
                     break;
+            }
+        }
+        public static void EndGame(bool timeover)
+        {
+            timer.Enabled = false;
+            timer.Dispose();
+            thread.Abort();
+            if (timeover)
+            {
+                GameWindow.Dispatcher.Invoke(() =>
+                {
+                    GameWindow.BackgroundP.Visibility = Visibility.Visible;
+                    GameWindow.EndTitle.Visibility = Visibility.Visible;
+                    GameWindow.EndBody.Visibility = Visibility.Visible;
+                    GameWindow.Score.Content = $"{score}/{size} Correct";
+                    GameWindow.Score.Visibility = Visibility.Visible;
+                    GameWindow.TimeLeft.Content = "Times Up";
+                    GameWindow.TimeLeft.Visibility = Visibility.Visible;
+                });
+            }
+            else
+            {
+                GameWindow.Dispatcher.Invoke(() =>
+                {
+                    GameWindow.BackgroundP.Visibility = Visibility.Visible;
+                    GameWindow.EndTitle.Visibility = Visibility.Visible;
+                    GameWindow.EndBody.Visibility = Visibility.Visible;
+                    GameWindow.Score.Content = $"{score}/{size} Correct";
+                    GameWindow.Score.Visibility = Visibility.Visible;
+                    GameWindow.TimeLeft.Content = GameTimer.ScoreTimer;
+                    GameWindow.TimeLeft.Visibility = Visibility.Visible;
+                });
             }
         }
     }

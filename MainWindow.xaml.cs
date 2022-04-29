@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Windows;
+using System.Timers;
+using Microsoft.Win32;
 
 namespace BioReviewGame
 {
@@ -7,96 +11,167 @@ namespace BioReviewGame
         public static MainWindow GameWindow;
         public static int QuestionNumber;
         public static int size;
+        public static int score;
+        public bool tryagain = false;
+        public static Timer timer = new Timer();
+        public static System.Threading.Thread thread = new System.Threading.Thread(GameTimer.StartTimer);
         public MainWindow()
         {
             InitializeComponent();
             GameWindow = this;
-            try
-            {
-                size = Json.JsonReader();
-            }
-            catch (System.IO.FileNotFoundException ex)
-            {
-                MessageBox.Show($"A Dll File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
-                Application.Current.Shutdown();
-            }
-            QuestionNumber = Game.Start(0);
         }
-
+        #region Quiz Buttons
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (Button1.Tag.Equals("correct")) 
+            if (Button1.Tag.Equals("correct"))
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
                 {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
                 }
             }
-            else
+            else 
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
-
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             if (Button2.Tag.Equals("correct"))
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
                 {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
                 }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
-
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
             if (Button3.Tag.Equals("correct"))
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
                 {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
                 }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
         }
-
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
             if (Button4.Tag.Equals("correct"))
             {
                 if (QuestionNumber < size)
                 {
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
                     QuestionNumber = Game.Start(QuestionNumber);
                     MessageBox.Show("Correct!");
                 }
                 else
                 {
-                    MessageBox.Show("Correct! You have finished the game!");
-                    Application.Current.Shutdown();
+                    if (tryagain)
+                        tryagain = false;
+                    else
+                        score++;
+                    Game.EndGame(false);
                 }
             }
             else
+            {
+                tryagain = true;
                 MessageBox.Show("Wrong answer!");
+            }
+        }
+        #endregion
+        private void Select_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Choose a Questions File",
+                Filter = "Q&A Files|*.q&a;*.Q&A;"
+            };
+            bool? result = openFileDialog.ShowDialog();
+            if(result == true)
+            {
+                try
+                {
+                    string json = Security.Decrypt(openFileDialog.FileName, openFileDialog.SafeFileName, false);
+                    size = Json.JsonReader(json);
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show($"A Dll File is missing. Please make sure you have the correct files in the correct folder.\n\nError Code: {ex}");
+                    Application.Current.Shutdown();
+                }
+            }
+        }
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            try { timer.Interval = Json.time; }
+            catch (ArgumentException) { MessageBox.Show("Time can't be zero"); return; }
+            timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            timer.Enabled = true;
+            thread.Start();
+            BackgroundP.Visibility = Visibility.Collapsed;
+            Start.Visibility = Visibility.Collapsed;
+            Select.Visibility = Visibility.Collapsed;
+            GameTitle.Visibility = Visibility.Collapsed;
+            QuestionNumber = Game.Start(0);
+        }
+        public void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Game.EndGame(true);
         }
     }
 }

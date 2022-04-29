@@ -27,7 +27,7 @@
 
         <Image x:Name="BackgroundP" Source="Images/Background.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="510" Margin="0,0,0,0" VerticalAlignment="Top" Width="874"/>
         <Button x:Name="Select" Content="Select Question File" HorizontalAlignment="Left" Click="Select_Click" Margin="101,390,0,0" VerticalAlignment="Top" Height="62" Width="126"/>
-        <Button x:Name="Start" Content="Start" IsEnabled="False" HorizontalAlignment="Right" Foreground="Red" Click="Start_Click" Margin="0,390,101,0" VerticalAlignment="Top" Height="62" Width="126"/>
+        <Button x:Name="Start" Content="Start" IsEnabled="False" HorizontalAlignment="Right" Click="Start_Click" Margin="0,390,101,0" VerticalAlignment="Top" Height="62" Width="126"/>
         <Label x:Name="GameTitle" Content="AP Bio Review Game" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>
 
         <Label x:Name="EndTitle" Content="Congrats You Finished" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,51,0,0" FontSize="30" VerticalAlignment="Top"/>

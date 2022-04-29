@@ -151,9 +151,9 @@
     <Resource Include="Images\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Instructions.txt">
+    <None Include="Instructions.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

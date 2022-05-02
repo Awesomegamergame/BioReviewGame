@@ -9,7 +9,7 @@ namespace BioReviewGame
         public static string ScoreTimer = "";
         public static void StartTimer()
         {
-            int time = Json.time / 1000;
+            double time = Json.time / 1000;
             while (time != -1)
             {
                 TimeSpan timespan = TimeSpan.FromSeconds(time);

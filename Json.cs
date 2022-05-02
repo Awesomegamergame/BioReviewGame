@@ -14,7 +14,7 @@ namespace BioReviewGame
         public static List<string> a3List = new List<string>();
         public static List<string> a4List = new List<string>();
         public static List<string> cList = new List<string>();
-        public static int time;
+        public static double time;
         public static int JsonReader(string jsonFile)
         {
             int size = 0;
@@ -43,7 +43,7 @@ namespace BioReviewGame
                 dynamic timer = obj.Timer;
                 foreach (JProperty data in timer)
                 {
-                    int ctime = ReadTimer(data.Name, "minutes", jsonFile) * 60000;
+                    double ctime = ReadTimer(data.Name, "minutes", jsonFile) * 60000;
                     time = ctime;
                 }
             }
@@ -64,10 +64,10 @@ namespace BioReviewGame
             JObject rss = JObject.Parse(json);
             return (string)rss["Questions"][GVersion][Property];
         }
-        public static int ReadTimer(string GVersion, string Property, string dir)
+        public static double ReadTimer(string GVersion, string Property, string dir)
         {
             JObject rss = JObject.Parse(dir);
-            return (int)rss["Timer"][GVersion][Property];
+            return (double)rss["Timer"][GVersion][Property];
         }
     }
 }
